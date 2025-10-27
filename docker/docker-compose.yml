@@ -45,6 +45,3 @@ services:
       PGADMIN_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
     ports:
       - "5050:80"
-
-    depends_on:
-      - postgres

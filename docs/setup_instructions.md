@@ -431,12 +431,17 @@ Then, start the consumer:
 python simple_consumer.py
 ```
 
-This script listens to the topic and processes each message as it arrives.
-
-✅ Expected Behavior:
-
+* This script listens to the topic and processes each message as it arrives.
+* If you get `NoBrokersAvailable`, verify Kafka is reachable at `localhost:9092`.
 * The consumer terminal will display each transaction as it’s processed.
 
+Start the data loader: 
+
+```bash
+python data_loader.py
+```
+
+* This script consumes Kafka messages and inserts transactions into PostgreSQL.
 * Transactions exceeding `$3000` will be flagged as suspicious and sent to the automatically created `suspicious-transactions` topic.
 * All transactions will be inserted into PostgreSQL with the `is_suspicious` column appropriately set.
 

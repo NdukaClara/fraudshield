@@ -50,9 +50,20 @@ else:
 @st.cache_data
 def load_data():
     with get_connection() as conn:
-        query = "SELECT * FROM transactions ORDER BY timestamp DESC LIMIT 300;"
+        query = "SELECT * FROM transactions;"
         df = pd.read_sql(query, conn)  # type: ignore
+
+    # Convert timestamp column to datetime
     df["timestamp"] = pd.to_datetime(df["timestamp"])
+
+    # Sample up to 30 transactions per month to keep dashboard lightweight
+    df["month"] = df["timestamp"].dt.to_period("M")
+    df = (
+        df.groupby("month", group_keys=False)
+          .apply(lambda x: x.sample(n=min(len(x), 30), random_state=42))
+          .reset_index(drop=True)
+    )
+
     return df
 
 # Load from session or cache
