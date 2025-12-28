@@ -41,7 +41,44 @@ services:
     depends_on:
       - postgres
     environment:
-      PGADMIN_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
-      PGADMIN_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
+      PGADMIN_EMAIL: ${PGADMIN_EMAIL}
+      PGADMIN_PASSWORD: ${PGADMIN_PASSWORD}
     ports:
       - "5050:80"
+
+#   spark-master:
+#     image: apache/spark:3.5.0
+#     container_name: spark-master
+#     command: ["/opt/spark/bin/spark-class", "org.apache.spark.deploy.master.Master", "--host", "spark-master"]
+#     ports:
+#       - "8080:8080"
+#       - "7077:7077"
+#     networks:
+#       - fraudshield-net
+
+#   spark-worker:
+#     image: apache/spark:3.5.0
+#     container_name: spark-worker
+#     command: ["/opt/spark/bin/spark-class", "org.apache.spark.deploy.worker.Worker", "spark://spark-master:7077"]
+#     depends_on:
+#       - spark-master
+#     networks:
+#       - fraudshield-net
+
+#   spark-consumer:
+#     build:
+#       context: ..
+#       dockerfile: docker/Dockerfile
+#     container_name: spark-consumer
+#     depends_on:
+#       - spark-master
+#       - kafka
+#     networks:
+#       - fraudshield-net
+#     environment:
+#       - SPARK_MASTER_URL=spark://spark-master:7077
+#     command: ["python3", "/app/consumer/spark_consumer.py"]
+
+# networks:
+#   fraudshield-net:
+#     driver: bridge

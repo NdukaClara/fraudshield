@@ -39,6 +39,7 @@ fraudshield/
 │ └── init.sql # Schema for transactions table
 │
 ├── docker/
+│ ├── Dockerfile
 │ └── docker-compose.yml # Kafka, Zookeeper, Postgres, pgAdmin
 │
 ├── .env # Environment variables (not committed)
