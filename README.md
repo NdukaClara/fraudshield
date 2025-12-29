@@ -1,6 +1,6 @@
-# 🛡️ FraudShield — Real-Time Fraud Detection Pipeline
+# 🛡️ FraudShieldIQ — Real-Time Fraud Detection Pipeline
 
-**FraudShield** is a real-time data engineering project designed to simulate how financial institutions handle and detect suspicious transactions in live data streams.
+**FraudShieldIQ** is a real-time data engineering project designed to simulate how financial institutions handle and detect suspicious transactions in live data streams.
 
 Built with **Kafka**, **PostgreSQL**, and **Streamlit**, the project demonstrates how streaming data pipelines can power real-time fraud analytics — from ingestion to visualization.
 
@@ -8,7 +8,7 @@ Built with **Kafka**, **PostgreSQL**, and **Streamlit**, the project demonstrate
 
 ## 🧠 Project Overview
 
-FraudShield explores how organizations that consume real-time data, especially banks and payment processors, manage transaction flows and identify anomalous patterns as data moves through the pipeline.
+FraudShieldIQ explores how organizations that consume real-time data, especially banks and payment processors, manage transaction flows and identify anomalous patterns as data moves through the pipeline.
 
 The system simulates:
 
@@ -17,7 +17,7 @@ The system simulates:
 - A **consumer and loader service** that ingests and stores data in PostgreSQL.  
 - A **Streamlit dashboard** for live analytics, fraud detection trends, and transaction summaries.
 
-This pipeline mirrors how real-world systems detect fraud signals — whether through thresholds, metadata patterns, or customer behavior — as data flows from ingestion to analytics.
+This pipeline mirrors how real-world systems detect fraud signals — whether through thresholds, metadata patterns, or customer behaviour — as data flows from ingestion to analytics.
 
 ---
 
@@ -118,10 +118,10 @@ The **Streamlit dashboard** connects directly to the Postgres database and provi
 
 ✅ **Real-Time Streaming:** Transaction data flows from producer → Kafka → Postgres continuously.  
 ✅ **Dynamic Fraud Tagging:** Randomized flags for `is_suspicious` simulate real fraud scenarios.  
-✅ **Fully Containerized Environment:** All components (Kafka, Postgres, pgAdmin) run inside Docker.  
+✅ **Fully Containerised Environment:** All components (Kafka, Postgres, pgAdmin) run inside Docker.  
 ✅ **Data Persistence:** PostgreSQL stores each transaction for historical and analytical insights.  
-✅ **Interactive Dashboard:** Built with Streamlit and Plotly for rich, real-time visualizations.  
-✅ **Modular Design:** Independent Python modules for producing, consuming, loading, and analyzing data.  
+✅ **Interactive Dashboard:** Built with Streamlit and Plotly for rich, real-time visualisations.  
+✅ **Modular Design:** Independent Python modules for producing, consuming, loading, and analysing data.  
 ✅ **Scalable Architecture:** Ready for future integration with Spark Structured Streaming and ML models.
 
 ---
@@ -166,10 +166,10 @@ Future updates will introduce:
 To replace the basic Kafka consumer with a distributed stream processing engine capable of large-scale data ingestion, transformation, and real-time fraud analytics.
 
 ### 🔹 Machine Learning Model Integration
-A predictive fraud detection layer trained on historical transaction data to identify high-risk patterns, such as anomalous transaction frequency, unusual time-of-day activity, or suspicious location behavior. The model will generate fraud risk scores for each transaction and flag potential threats in real time.
+A predictive fraud detection layer trained on historical transaction data to identify high-risk patterns, such as anomalous transaction frequency, unusual time-of-day activity, or suspicious location behaviour. The model will generate fraud risk scores for each transaction and flag potential threats in real time.
 
 ### 🔹 Full Dockerized Deployment
-The current setup already containerizes Kafka, ZooKeeper, and Postgres. Future updates will extend Docker integration to include the producer, consumer, and Streamlit dashboard, enabling a single-command startup for the entire pipeline.
+The current setup already containerises Kafka, ZooKeeper, and Postgres. Future updates will extend Docker integration to include the producer, consumer, and Streamlit dashboard, enabling a single-command startup for the entire pipeline.
 
 
 ---
